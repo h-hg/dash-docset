@@ -1,0 +1,5 @@
+*.tar.gz
+*.tgz
+*.docset/
+*.log
+*.png
