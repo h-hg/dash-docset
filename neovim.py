@@ -4,6 +4,8 @@ import re
 import json
 import sqlite3
 import tarfile
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 from urllib import request
 
 '''
@@ -118,7 +120,7 @@ def main():
     src_url = get_github_release_code_url(repo, tag)
     tar_gz_filename = os.path.basename(src_url)
     print(f'Downloading the Neovim {tag} source code...')
-    # download(src_url, tar_gz_filename)
+    download(src_url, tar_gz_filename)
     dir = uncompress_tar_gz(tar_gz_filename, './')
     make_doc(dir)
 
